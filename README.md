@@ -21,4 +21,12 @@ MESSAGE_TAGS = {
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+SESSION_COOKIE_AGE = 5 * 60
+SESSION_SAVE_EVERY_REQUEST = True
+
 ```

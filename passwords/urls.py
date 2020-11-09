@@ -27,4 +27,5 @@ urlpatterns = [
          name='password_reset_complete'),
     path('list/', views.password_list, name='password_list'),
     path('create/', views.password_create, name='password_create'),
+    path('delete/<int:pk>/', views.password_delete, name='password_delete'),
 ]

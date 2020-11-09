@@ -5,7 +5,6 @@ from passwords.models import PasswordEntry
 from cryptography.fernet import Fernet
 
 
-
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(max_length=254)
 
@@ -30,6 +29,11 @@ class PasswordCreate(forms.ModelForm):
     class Meta:
         model = PasswordEntry
         fields = ('site_url', 'password', 'login',)
+
+        widgets = {
+            "password": forms.PasswordInput(attrs={'placeholder': '********', 'autocomplete': 'new-password', 'data-toggle': 'password'}),
+            "site_url": forms.URLInput(attrs={'autocomplete': 'new-password'}),
+        }
 
     def clean_password(self):
         password_decrypted = self.cleaned_data['password']
